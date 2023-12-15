@@ -11,6 +11,7 @@
 Assets/Models/
 Assets/PolygonApocalypse/
 Assets/Scenes/SampleScene/NavMesh.asset
+Assets/Scenes/SampleScene/NavMesh.asset.meta
 
 # Jetbrain Rider Cache
 .idea/
