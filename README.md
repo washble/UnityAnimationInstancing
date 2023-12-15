@@ -22,6 +22,3 @@ What is an Animation Instancing? Watch Unity Explain
 * I deleted the model that I didn't make
 * Please refer to YouTube or the link below for instructions on how to use it
 https://blog.unity.com/engine-platform/animation-instancing-for-skinnedmeshrenderer
-* 
-* 
-* 
