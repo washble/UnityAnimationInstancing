@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 2092983404
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 86201191294b28dda509f5202f2ecc47
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AnimationTexture/Dude_low_instancing.bytes
+- Assets/AnimationTexture/Unity_Model_instancing.bytes
+- Assets/AnimationTexture/Momcloth4_Rigged.bytes
+Dependencies: []

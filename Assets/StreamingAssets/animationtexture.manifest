@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3180231663
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6118c163727b25bd3d2b99fe985752cc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AnimationTexture/Dude_low_instancing.bytes
+- Assets/AnimationTexture/Unity_Model_instancing.bytes
+- Assets/AnimationTexture/SM_Chr_Zombie_Female_01.bytes
+- Assets/AnimationTexture/Characters.bytes
+- Assets/AnimationTexture/Momcloth4_Rigged.bytes
+Dependencies: []
