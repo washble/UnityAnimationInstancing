@@ -8,8 +8,9 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 
 # Custom gitignore
-Models/
-PolygonApocalypse/
+Assets/Models/
+Assets/PolygonApocalypse/
+Assets/Scenes/SampleScene/NavMesh.asset
 
 # Jetbrain Rider Cache
 .idea/
