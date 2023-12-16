@@ -9,8 +9,13 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Zombie_Female
   m_Shader: {fileID: 4800000, guid: d3bdb1753a57657448ae42b090b7ddce, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ValidKeywords:
+  - _SMOOTHNESS_ON
+  m_InvalidKeywords:
+  - _EMISSION_ENABLE
+  - _SMOOTHNESSENABLE_OFF
+  - _SMOOTHNESS_ENABLE
+  - _SMOOTHNESS_ON_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -22,6 +27,10 @@ Material:
     m_TexEnvs:
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: e7c61b860d3b36d449535dfa25d68827, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -43,8 +52,18 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
+    - _EMISSION_ENABLE: 1
+    - _EMISSION_ON: 0
+    - _Emission_Enable: 0
+    - _Emission_On: 0
     - _NormalScale: 1
     - _OcclusionScale: 0
+    - _SMOOTHNESS_ENABLE: 1
+    - _SMOOTHNESS_ON: 1
+    - _Smoothness: 30
+    - _SmoothnessEnable: 0
+    - _Smoothness_Enable: 0
+    - _Smoothness_On: 0
     - _SpecularMap: 1
     - _SpecularScale: 1
     - _boneTextureBlockHeight: 0
@@ -53,6 +72,9 @@ Material:
     - _boneTextureWidth: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightColor: {r: 0.9056604, g: 0.67885476, b: 0.5339979, a: 1}
     - _MainLightPosition: {r: 10, g: 50, b: 10, a: 0}
+    - _SmoothnessColor: {r: 0, g: 1, b: 0.027679205, a: 1}
+    - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -19,9 +19,9 @@ float4 _NormalMap_ST;
 float4 _EmissionMap_ST;
 float4 _Color;
 float3 _EmissionColor;
-float _NormalScale;
-float _EmissionScale;
-float _SpecularScale;
+half _NormalScale;
+half _SpecularScale;
+half _Smoothness;
 
 int _boneTextureBlockWidth;
 int _boneTextureBlockHeight;
