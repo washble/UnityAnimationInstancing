@@ -125,12 +125,14 @@ Shader "Custom/URPAnimationLitShader"
 
             	float3 NormalTS = UnpackNormal(SAMPLE_TEXTURE2D(_NormalMap, sampler_NormalMap, input.uv));
                 float3x3 tbnMatrix = float3x3(input.tangent, input.biTangent, input.normal);
-                float3 normalWS = normalize(mul(NormalTS, tbnMatrix));
+                float3 normalWS = normalize(mul(NormalTS, tbnMatrix)) * _NormalScale;
 
             	half3 emission = tex2Dlod(sampler_EmissionMap, float4(input.uv, 0, 1));
             	color.rgb += emission.rgb * _EmissionColor * _EmissionScale;
 
 				Light mainLight = GetMainLight(input.shadowCoord);
+				input.normal = normalize(input.normal);
+            	
 				half3 lighting = AdditionalLighting(mainLight, normalWS);
 
             	int additionalLightsCount = GetAdditionalLightsCount();
@@ -180,12 +182,12 @@ Shader "Custom/URPAnimationLitShader"
             #pragma multi_compile_instancing
             #pragma multi_compile_shadowcaster
 
-            #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "URPAnimationInstancingBaseCustom.hlsl"
 
             struct v2f
             {
-                V2F_SHADOW_CASTER;
+	            float4 vertex : SV_POSITION;
             };
             
             v2f vertn(appdata v)
@@ -193,13 +195,19 @@ Shader "Custom/URPAnimationLitShader"
                 v2f o;
                 UNITY_SETUP_INSTANCE_ID(v);
                 vert(v);
-                TRANSFER_SHADOW_CASTER_NORMALOFFSET(o);
+
+            	float3 positionWS = TransformObjectToWorld(v.vertex.xyz);
+            	float3 normalWS = TransformObjectToWorldNormal(v.normal.xyz);
+            	float4 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _MainLightPosition.xyz));
+
+				o.vertex = positionCS;
+            	
                 return o;
             }
             
-            fixed4 frag(v2f i) : SV_Target
+            half4 frag(v2f i) : SV_Target
             {
-                SHADOW_CASTER_FRAGMENT(i);
+                return 0;
             }
 
             ENDHLSL
