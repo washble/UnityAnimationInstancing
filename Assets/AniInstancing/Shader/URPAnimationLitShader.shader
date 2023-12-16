@@ -21,6 +21,7 @@ Shader "Custom/URPAnimationLitShader"
     	
     	[Space(20)][Header(Ambient)]
     	[Toggle(_AMBIENT_ON)] _AMBIENT_ON("Ambient On", Float) = 0
+    	_EnviIntensity("Environment Lighting", Range(0,1)) = 1
     	
         [HideInInspector]_boneTextureBlockWidth("_boneTextureBlockWidth", int) = 0
 		[HideInInspector]_boneTextureBlockHeight("_boneTextureBlockHeight", int) = 0
@@ -133,6 +134,11 @@ Shader "Custom/URPAnimationLitShader"
 				half dotNL = dot(normalWS, light.direction) * 0.5 + 0.5;
 				return light.color * dotNL * light.distanceAttenuation * light.shadowAttenuation;
 			}
+
+            half3 GetSafeNormalize(half3 lightDirection, half3 viewDirection)
+            {
+	            return SafeNormalize(lightDirection + viewDirection);
+            }
             
             float4 frag (v2f i) : SV_Target
             {
@@ -175,11 +181,15 @@ Shader "Custom/URPAnimationLitShader"
                 }
 
 				color = float4(color.rgb * lighting, color.a);
+            	color.rgb += specColor + addLingting;
+            	
             	#if defined(_AMBIENT_ON)
 					half3 ambient = SampleSH(normalWS);
-            		color.rgb += ambient;
+            		half3 hv = GetSafeNormalize(mainLight.direction, i.viewDirection);
+            		float NdotH = saturate(dot(hv, normalize(normalWS)));
+            		color.rgb += ambient * (1.0 * NdotH) * _EnviIntensity;
             	#endif
-            	color.rgb += specColor + addLingting;
+            	
             	color.rgb = MixFog(color.rgb, i.fogCoord.x);
             	
 				return color;

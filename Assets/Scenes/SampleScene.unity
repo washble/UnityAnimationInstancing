@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Chr_Zombie_Female_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1015224441584018, guid: 5fc00e7c9fc50be498bbf7952bbcd3ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4379659365344250, guid: 5fc00e7c9fc50be498bbf7952bbcd3ba, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -353,7 +357,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.42973477, g: 0.55658066, b: 0.8207547, a: 1}
-  m_Intensity: 5
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -715,10 +719,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.36311856, g: 0.49638817, b: 0.9056604, a: 1}
-  m_Intensity: 500
-  m_Range: 20
-  m_SpotAngle: 72
-  m_InnerSpotAngle: 21.80208
+  m_Intensity: 300
+  m_Range: 30
+  m_SpotAngle: 157.1979
+  m_InnerSpotAngle: 79.588295
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -1025,7 +1029,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.36311856, g: 0.49638817, b: 0.9056604, a: 1}
-  m_Intensity: 100
+  m_Intensity: 50
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1198,7 +1202,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.2951673, b: 0.38395947, a: 1}
-  m_Intensity: 100
+  m_Intensity: 50
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1298,7 +1302,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.2951673, b: 0.38395947, a: 1}
-  m_Intensity: 100
+  m_Intensity: 50
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

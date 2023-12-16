@@ -22,6 +22,7 @@ float3 _EmissionColor;
 half _NormalScale;
 half _SpecularScale;
 half _Smoothness;
+half _EnviIntensity;
 
 int _boneTextureBlockWidth;
 int _boneTextureBlockHeight;

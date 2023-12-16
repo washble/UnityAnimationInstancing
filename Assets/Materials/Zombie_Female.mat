@@ -10,6 +10,7 @@ Material:
   m_Name: Zombie_Female
   m_Shader: {fileID: 4800000, guid: d3bdb1753a57657448ae42b090b7ddce, type: 3}
   m_ValidKeywords:
+  - _AMBIENT_ON
   - _SMOOTHNESS_ON
   m_InvalidKeywords:
   - _EMISSION_ENABLE
@@ -51,12 +52,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AMBIENT_ON: 0
+    - _AMBIENT_ON: 1
     - _BumpScale: 1
     - _EMISSION_ENABLE: 1
     - _EMISSION_ON: 0
     - _Emission_Enable: 0
     - _Emission_On: 0
+    - _EnviIntensity: 1
     - _NormalScale: 1
     - _OcclusionScale: 0
     - _SMOOTHNESS_ENABLE: 1
