@@ -7,15 +7,20 @@ sampler2D _boneTexture;
 
 Texture2D _MainTex;
 Texture2D _NormalMap;
+//Texture2D _EmissionMap;
 SamplerState sampler_MainTex;
 SamplerState sampler_NormalMap;
+//SamplerState sampler_EmissionMap;
 
 CBUFFER_START(UnityPerMaterial)
 
 float4 _MainTex_ST;
 float4 _NormalMap_ST;
+float4 _EmissionMap_ST;
 float4 _Color;
+float3 _EmissionColor;
 float _NormalScale;
+float _EmissionScale;
 float _SpecularScale;
 
 int _boneTextureBlockWidth;
