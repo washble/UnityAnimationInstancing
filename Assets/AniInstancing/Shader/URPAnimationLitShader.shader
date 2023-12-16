@@ -19,6 +19,9 @@ Shader "Custom/URPAnimationLitShader"
     	[Toggle(_SMOOTHNESS_ON)] _SMOOTHNESS_ON("Smoothness On", Float) = 0
     	_Smoothness("Smoothness", Float) = 30
     	
+    	[Space(20)][Header(Ambient)]
+    	[Toggle(_AMBIENT_ON)] _AMBIENT_ON("Ambient On", Float) = 0
+    	
         [HideInInspector]_boneTextureBlockWidth("_boneTextureBlockWidth", int) = 0
 		[HideInInspector]_boneTextureBlockHeight("_boneTextureBlockHeight", int) = 0
 		[HideInInspector]_boneTextureWidth("_boneTextureWidth", int) = 0
@@ -80,6 +83,7 @@ Shader "Custom/URPAnimationLitShader"
 
             #pragma shader_feature_local _EMISSION_ON
             #pragma shader_feature_local _SMOOTHNESS_ON
+            #pragma shader_feature_local _AMBIENT_ON
             
             #pragma vertex vertn
             #pragma fragment frag
@@ -146,35 +150,36 @@ Shader "Custom/URPAnimationLitShader"
 				Light mainLight = GetMainLight(i.shadowCoord);
             	half3 lighting = AdditionalLighting(mainLight, normalWS);
 
-            	half3 ambient = SampleSH(normalWS);
-            	color.rgb *= ambient;
-
+            	float3 specColor = 0;
 				#if defined(_SMOOTHNESS_ON)
             		half3 reflectDirection = reflect(-mainLight.direction, normalWS);
 	                half spec = saturate(dot(reflectDirection, i.viewDirection));
 	                spec = pow(spec, _Smoothness);
-            		color.rgb += spec;
+            		specColor += spec * mainLight.color;
 				#endif
 
+            	half3 addLingting = 0;
             	int additionalLightsCount = GetAdditionalLightsCount();
 				for (int index = 0; index < additionalLightsCount; ++index)
                 {
                     Light addLight = GetAdditionalLight(index, i.worldPosition);
 					float3 addLightResult = AdditionalLighting(addLight, normalWS);
 
-					float addLightSpec = 0;
 					#if defined(_SMOOTHNESS_ON)
 						half3 reflectDirection = reflect(-addLight.direction, normalWS);
 		                half spec = saturate(dot(reflectDirection, i.viewDirection));
-			            addLightSpec = pow(spec, _Smoothness);
+						specColor += pow(spec, _Smoothness) * addLight.color;
 					#endif
 					
-                    lighting += addLightResult + addLightSpec;
+                    addLingting += addLightResult;
                 }
 
-            	float nl = clamp(dot(i.normal,normalize(_MainLightPosition.xyz)), 0.2, 1.0);
-            	
-				color = float4(color.rgb * nl * lighting, color.a);
+				color = float4(color.rgb * lighting, color.a);
+            	#if defined(_AMBIENT_ON)
+					half3 ambient = SampleSH(normalWS);
+            		color.rgb += ambient;
+            	#endif
+            	color.rgb += specColor + addLingting;
             	color.rgb = MixFog(color.rgb, i.fogCoord.x);
             	
 				return color;

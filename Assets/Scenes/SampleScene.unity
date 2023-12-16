@@ -639,7 +639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &761593231
 Transform:
   m_ObjectHideFlags: 0
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6326f2ab5f872143ab1e7da7dddd927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnCount: 1000
+  maxSpawnCount: 500
   characterPrefab: {fileID: 350139918}
   attachObject: {fileID: 5659273825812573520}
 --- !u!1 &1075881221
@@ -898,7 +898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1602512342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6326f2ab5f872143ab1e7da7dddd927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpawnCount: 1000
+  maxSpawnCount: 500
   characterPrefab: {fileID: 418317265}
   attachObject: {fileID: 0}
 --- !u!4 &1602512343

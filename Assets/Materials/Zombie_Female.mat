@@ -51,6 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AMBIENT_ON: 0
     - _BumpScale: 1
     - _EMISSION_ENABLE: 1
     - _EMISSION_ON: 0

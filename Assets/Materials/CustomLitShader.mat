@@ -9,7 +9,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: CustomLitShader
   m_Shader: {fileID: 4800000, guid: d3bdb1753a57657448ae42b090b7ddce, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _EMISSION_ON
+  - _SMOOTHNESS_ON
   m_InvalidKeywords:
   - SMOOTHNESS_ENABLE
   - _SMOOTHNESS
@@ -52,7 +54,7 @@ Material:
     m_Floats:
     - _BumpScale: 1
     - _EMISSION_ENABLE: 0
-    - _EMISSION_ON: 0
+    - _EMISSION_ON: 1
     - _EMISSION_On: 0
     - _Emission: 0
     - _EmissionScale: 2
@@ -62,12 +64,12 @@ Material:
     - _Gloss: 100
     - _IsEmission: 0
     - _IsSmoothness: 0
-    - _NormalScale: 5
+    - _NormalScale: 1
     - _OcclusionScale: 0
     - _SMOOTHNESS_ENABLE: 0
-    - _SMOOTHNESS_ON: 0
+    - _SMOOTHNESS_ON: 1
     - _SMOOTHNESS_On: 0
-    - _Smoothness: 0
+    - _Smoothness: 30
     - _SmoothnessEnable: 1
     - _Smoothness_Enable: 1
     - _Smoothness_ON: 0
